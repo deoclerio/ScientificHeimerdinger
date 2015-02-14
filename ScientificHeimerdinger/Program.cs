@@ -248,24 +248,27 @@ namespace HeimerdingerARK
 
             //Combo
             var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
+            var Qtarget = TargetSelector.GetTarget(600, TargetSelector.DamageType.Magical);
             var wpred = W.GetPrediction(target);
 
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
+                var ta = TargetSelector.GetTarget(600, TargetSelector.DamageType.Magical);
                 if (Q.IsReady() && R.IsReady() && Config.Item("UseQR").GetValue<bool>() &&
-                    Config.Item("UseQ").GetValue<bool>() &&
-                    player.Position.CountEnemiesInRange(425) >=
+                    Config.Item("UseQ").GetValue<bool>() && Qtarget.IsValidTarget(600) &&
+                    player.Position.CountEnemiesInRange(600) >=
                     Config.Item("QRcount").GetValue<Slider>().Value)
                 {
                     R.Cast();
-                    Q.Cast(target.Position);
+                    Q.Cast(Qtarget.Position);
                 }
                 else
                 {
-                    if (Q.IsReady() && Config.Item("UseQ").GetValue<bool>() &&
-                        player.Position.CountEnemiesInRange(425) >= 1)
+                    if (Q.IsReady() && Config.Item("UseQ").GetValue<bool>() && Qtarget.IsValidTarget(600) &&
+                    
+                        player.Position.CountEnemiesInRange(600) >= 1)
                     {
-                        Q.Cast(player.ServerPosition);
+                        Q.Cast(Qtarget.Position);
                     }
                 }
                 if (E3.IsReady() && R.IsReady() && Config.Item("UseER").GetValue<bool>() &&
