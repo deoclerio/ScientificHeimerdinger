@@ -27,6 +27,7 @@ namespace HeimerdingerARK
         public static Orbwalking.Orbwalker Orbwalker;
         private static Items.Item zhonyas;
         public static Spell Q;
+        public static Spell Q1;
         public static Spell W;
         public static Spell E;
         public static Spell E1;
@@ -48,6 +49,7 @@ namespace HeimerdingerARK
             E.SetSkillshot(0.5f, 120f, 1200f, false, SkillshotType.SkillshotCircle);
 
             Q = new Spell(SpellSlot.Q, 325);
+            Q1 = new Spell(SpellSlot.Q, 600);
             Q.SetSkillshot(0.5f, 40f, 1100f, true, SkillshotType.SkillshotLine);
 
             R = new Spell(SpellSlot.R, 100);
@@ -208,7 +210,8 @@ namespace HeimerdingerARK
         private static
             void Game_OnGameUpdate(EventArgs args)
         {
-
+            if (player.IsDead)
+                return;
             if (player.HealthPercentage() <= Config.Item("zhonyashp").GetValue<Slider>().Value)
                 zhonyas.Cast();
             {
@@ -248,19 +251,18 @@ namespace HeimerdingerARK
 
             //Combo
             var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
-            var Qtarget = TargetSelector.GetTarget(600, TargetSelector.DamageType.Magical);
+            var Qtarget = TargetSelector.GetTarget(Q1.Range, TargetSelector.DamageType.Magical);
             var wpred = W.GetPrediction(target);
 
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
-                var ta = TargetSelector.GetTarget(600, TargetSelector.DamageType.Magical);
                 if (Q.IsReady() && R.IsReady() && Config.Item("UseQR").GetValue<bool>() &&
-                    Config.Item("UseQ").GetValue<bool>() && Qtarget.IsValidTarget(600) &&
-                    player.Position.CountEnemiesInRange(600) >=
+                    Config.Item("UseQ").GetValue<bool>() && Qtarget.IsValidTarget(Q1.Range) &&
+                    player.Position.CountEnemiesInRange(700) >=
                     Config.Item("QRcount").GetValue<Slider>().Value)
                 {
                     R.Cast();
-                    Q.Cast(Qtarget.Position);
+                    Q.Cast(player.ServerPosition.Extend(Game.CursorPos, Q.Range));
                 }
                 else
                 {
@@ -268,7 +270,7 @@ namespace HeimerdingerARK
                     
                         player.Position.CountEnemiesInRange(600) >= 1)
                     {
-                        Q.Cast(Qtarget.Position);
+                        Q.Cast(player.ServerPosition.Extend(Game.CursorPos, Q.Range));
                     }
                 }
                 if (E3.IsReady() && R.IsReady() && Config.Item("UseER").GetValue<bool>() &&
