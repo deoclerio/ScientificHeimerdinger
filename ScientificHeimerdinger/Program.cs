@@ -17,7 +17,7 @@ namespace HeimerdingerARK
         {
             //Welcome Message upon loading assembly.
             Game.PrintChat(
-                "<font color=\"#00BFFF\">Heimerdinger ARK -<font color=\"#FFFFFF\"> Recommended Version Successfully Loaded.</font>");
+                "<font color=\"#00BFFF\">ScientificHeimerdinger -<font color=\"#FFFFFF\"> Recommended Version Successfully Loaded.</font>");
             CustomEvents.Game.OnGameLoad += OnLoad;
         }
 
@@ -69,7 +69,7 @@ namespace HeimerdingerARK
 
 
 
-            Config = new Menu("Heimerdinger ARK", "heimer", true);
+            Config = new Menu("Scientific Heimerdinger", "heimer", true);
             Orbwalker = new Orbwalking.Orbwalker(Config.AddSubMenu(new Menu("Orbwalker", "Orbwalker")));
             TargetSelector.AddToMenu(Config.AddSubMenu(new Menu("Target Selector", "Target Selector")));
 
