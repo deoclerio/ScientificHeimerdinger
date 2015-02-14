@@ -102,7 +102,7 @@ namespace HeimerdingerARK
             //LANECLEARMENU
             Config.SubMenu("Laneclear Settings")
             .AddItem(new MenuItem("laneW", "Use W - Hextech Micro-Rockets").SetValue(true));
-            Config.SubMenu("")
+            Config.SubMenu("Laneclear Settings")
                 .AddItem(new MenuItem("laneE", "Use E - CH-2 Electron Storm Grenade").SetValue(true));
 
             //DRAWINGMENU
@@ -119,7 +119,6 @@ namespace HeimerdingerARK
             //MISCMENU
 
             Config.SubMenu("Misc").AddItem(new MenuItem("DrawD", "Damage Indicator").SetValue(true));
-
             Config.SubMenu("Misc").AddItem(new MenuItem("AntiGap", "Anti Gapcloser - E").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("Interrupt", "Interrupt Spells - E").SetValue(true));
             Config.AddToMainMenu();
