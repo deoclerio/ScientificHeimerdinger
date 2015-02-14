@@ -1,0 +1,16 @@
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\ScientificHeimerdinger.exe.config
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\ScientificHeimerdinger.exe
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\ScientificHeimerdinger.pdb
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\LeagueSharp.Common.dll
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\LeagueSharp.dll
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\SharpDX.Direct3D9.dll
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\SharpDX.dll
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\SharpDX.Toolkit.dll
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\SharpDX.Toolkit.Graphics.dll
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\clipper_library.dll
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\LeagueSharp.xml
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\SharpDX.Toolkit.xml
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Debug\SharpDX.Toolkit.Graphics.xml
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\obj\Debug\ScientificHeimerdinger.csprojResolveAssemblyReference.cache
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\obj\Debug\ScientificHeimerdinger.exe
+c:\users\haf911\documents\visual studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\obj\Debug\ScientificHeimerdinger.pdb
