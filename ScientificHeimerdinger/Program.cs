@@ -99,12 +99,16 @@ namespace HeimerdingerARK
                 .AddItem(new MenuItem("harassW", "Use W - Hextech Micro-Rockets").SetValue(true));
             Config.SubMenu("Harass Settings")
                 .AddItem(new MenuItem("harassE", "Use E - CH-2 Electron Storm Grenade").SetValue(true));
+            Config.SubMenu("Harass Settings")
+                .AddItem(new MenuItem("harassmana", "Mana Percentage").SetValue(new Slider(30, 100, 0)));
 
             //LANECLEARMENU
             Config.SubMenu("Laneclear Settings")
             .AddItem(new MenuItem("laneW", "Use W - Hextech Micro-Rockets").SetValue(true));
             Config.SubMenu("Laneclear Settings")
                 .AddItem(new MenuItem("laneE", "Use E - CH-2 Electron Storm Grenade").SetValue(true));
+            Config.SubMenu("Laneclear Settings")
+                .AddItem(new MenuItem("laneclearmana", "Mana Percentage").SetValue(new Slider(30, 100, 0)));
 
             //DRAWINGMENU
 
@@ -216,17 +220,21 @@ namespace HeimerdingerARK
             {
 
             }
+            var lanemana = Config.Item("laneclearmana").GetValue<Slider>().Value;
+            var harassmana = Config.Item("harassmana").GetValue<Slider>().Value;
             var laneclear = (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear);
             var allMinionsW = MinionManager.GetMinions(ObjectManager.Player.ServerPosition, W.Range + W.Width + 30);
             var allMinionsE = MinionManager.GetMinions(ObjectManager.Player.ServerPosition, E.Range + E.Width);
 
             var Wfarmpos = W.GetLineFarmLocation(allMinionsW, W.Width);
             var Efarmpos = E.GetCircularFarmLocation(allMinionsE, E.Width);
-            if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear && Wfarmpos.MinionsHit >= 3 && Config.Item("laneW").GetValue<bool>())
+            if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear && Wfarmpos.MinionsHit >= 3 && Config.Item("laneW").GetValue<bool>()
+                && player.ManaPercentage() >= lanemana)
             {
                 W.Cast(Wfarmpos.Position);
             }
-            if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear && Efarmpos.MinionsHit >= 3 && allMinionsE.Count >= 1 && Config.Item("laneE").GetValue<bool>())
+            if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear && Efarmpos.MinionsHit >= 3 && allMinionsE.Count >= 1 && Config.Item("laneE").GetValue<bool>()
+                && player.ManaPercentage() >= lanemana)
             {
                 E.Cast(Efarmpos.Position);
             }
@@ -237,11 +245,13 @@ namespace HeimerdingerARK
             var mixed = (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Mixed);
             var htarget = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
 
-            if (E.IsReady() && mixed && Config.Item("harassE").GetValue<bool>() && htarget.IsValidTarget(E.Range))
+            if (E.IsReady() && mixed && Config.Item("harassE").GetValue<bool>() && htarget.IsValidTarget(E.Range)
+                && player.ManaPercentage() >= harassmana)
             {
                 E.CastIfHitchanceEquals(htarget, HitChance.High, true);
             }
-            if (W.IsReady() && mixed && Config.Item("harassW").GetValue<bool>() && htarget.IsValidTarget(W.Range))
+            if (W.IsReady() && mixed && Config.Item("harassW").GetValue<bool>() && htarget.IsValidTarget(W.Range)
+                && player.ManaPercentage() >= harassmana)
             {
                 W.CastIfHitchanceEquals(htarget, HitChance.High, true);
             }
