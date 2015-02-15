@@ -11,6 +11,5 @@ C:\Users\HAF911\Documents\Visual Studio 2013\Projects\ScientificHeimerdinger\Sci
 C:\Users\HAF911\Documents\Visual Studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Release\LeagueSharp.xml
 C:\Users\HAF911\Documents\Visual Studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Release\SharpDX.Toolkit.xml
 C:\Users\HAF911\Documents\Visual Studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\bin\Release\SharpDX.Toolkit.Graphics.xml
-C:\Users\HAF911\Documents\Visual Studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\obj\Debug\ScientificHeimerdinger.csprojResolveAssemblyReference.cache
 C:\Users\HAF911\Documents\Visual Studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\obj\Debug\ScientificHeimerdinger.exe
 C:\Users\HAF911\Documents\Visual Studio 2013\Projects\ScientificHeimerdinger\ScientificHeimerdinger\obj\Debug\ScientificHeimerdinger.pdb

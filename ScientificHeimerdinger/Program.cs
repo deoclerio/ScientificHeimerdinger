@@ -414,7 +414,7 @@ namespace HeimerdingerARK
             void AntiGapCloser_OnEnemyGapcloser(ActiveGapcloser gapcloser)
         {
             if (E.IsReady() && gapcloser.Sender.IsValidTarget(E.Range) && Config.Item("AntiGap").GetValue<bool>())
-                E.Cast(gapcloser.Sender.Position);
+                E.Cast(gapcloser.End);
         }
 
 
