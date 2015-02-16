@@ -266,8 +266,8 @@ namespace HeimerdingerARK
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
             {
                 if (Q.IsReady() && R.IsReady() && Config.Item("UseQR").GetValue<bool>() &&
-                    Config.Item("UseQ").GetValue<bool>() && qtarget.IsValidTarget(500) &&
-                    player.Position.CountEnemiesInRange(500) >=
+                    Config.Item("UseQ").GetValue<bool>() && qtarget.IsValidTarget(650) &&
+                    player.Position.CountEnemiesInRange(650) >=
                     Config.Item("QRcount").GetValue<Slider>().Value)
                 {
                     R.Cast();
@@ -275,9 +275,9 @@ namespace HeimerdingerARK
                 }
                 else
                 {
-                    if (Q.IsReady() && Config.Item("UseQ").GetValue<bool>() && qtarget.IsValidTarget(500) &&
+                    if (Q.IsReady() && Config.Item("UseQ").GetValue<bool>() && qtarget.IsValidTarget(650) &&
                     
-                        player.Position.CountEnemiesInRange(500) >= 1)
+                        player.Position.CountEnemiesInRange(650) >= 1)
                     {
                         Q.Cast(player.Position.Extend(target.Position, + 300));
                     }
