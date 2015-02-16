@@ -124,6 +124,7 @@ namespace HeimerdingerARK
             //MISCMENU
 
             Config.SubMenu("Misc").AddItem(new MenuItem("DrawD", "Damage Indicator").SetValue(true));
+            Config.SubMenu("Misc").AddItem(new MenuItem("blockAA", "Block AA harass in Laneclear under enemy turret").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("AntiGap", "Anti Gapcloser - E").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("Interrupt", "Interrupt Spells - E").SetValue(false));
             Config.AddToMainMenu();
@@ -207,7 +208,13 @@ namespace HeimerdingerARK
                 }
             }
         }
+            protected  void BeforeAttack(Orbwalking.BeforeAttackEventArgs args)
+        {
+            if (Config.Item("blockAA", true).GetValue<bool>() && player.Position.UnderTurret(true) && Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.LaneClear)
 
+                return;
+                    
+                }
 
 
         private static
@@ -255,6 +262,8 @@ namespace HeimerdingerARK
             {
                 W.CastIfHitchanceEquals(htarget, HitChance.High, true);
             }
+
+
 
 
 
