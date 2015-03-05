@@ -104,7 +104,7 @@ namespace HeimerdingerARK
 
             //LANECLEARMENU
             Config.SubMenu("Laneclear Settings")
-            .AddItem(new MenuItem("laneW", "Use W - Hextech Micro-Rockets").SetValue(true));
+                .AddItem(new MenuItem("laneW", "Use W - Hextech Micro-Rockets").SetValue(true));
             Config.SubMenu("Laneclear Settings")
                 .AddItem(new MenuItem("laneE", "Use E - CH-2 Electron Storm Grenade").SetValue(true));
             Config.SubMenu("Laneclear Settings")
@@ -124,7 +124,8 @@ namespace HeimerdingerARK
             //MISCMENU
 
             Config.SubMenu("Misc").AddItem(new MenuItem("DrawD", "Damage Indicator").SetValue(true));
-            Config.SubMenu("Misc").AddItem(new MenuItem("blockAA", "Block AA harass in Laneclear under enemy turret").SetValue(false));
+            Config.SubMenu("Misc")
+                .AddItem(new MenuItem("blockAA", "Block AA harass in Laneclear under enemy turret").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("AntiGap", "Anti Gapcloser - E").SetValue(false));
             Config.SubMenu("Misc").AddItem(new MenuItem("Interrupt", "Interrupt Spells - E").SetValue(false));
             Config.AddToMainMenu();
@@ -132,7 +133,7 @@ namespace HeimerdingerARK
             //Idk what this is called but it's something <3
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
             AntiGapcloser.OnEnemyGapcloser += AntiGapCloser_OnEnemyGapcloser;
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += OnDraw;
             Drawing.OnEndScene += OnEndScene;
 
@@ -304,6 +305,8 @@ namespace HeimerdingerARK
                     {
                         E.CastIfHitchanceEquals(target, HitChance.High, true);
                     }
+
+
                     if (W.IsReady() && Config.Item("UseWR").GetValue<bool>() && Config.Item("UseR").GetValue<bool>() &&
                         R.IsReady() && target.IsValidTarget(W.Range) &&
                         wpred.Hitchance >= HitChance.High && CalcDamage(target) > target.Health)
