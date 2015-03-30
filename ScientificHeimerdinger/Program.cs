@@ -272,7 +272,7 @@ namespace HeimerdingerARK
             //Combo
             var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
             if (target == null)
-                return;t
+                return;
             var qtarget = TargetSelector.GetTarget(600, TargetSelector.DamageType.Magical);
             if (qtarget == null)
                 return;
