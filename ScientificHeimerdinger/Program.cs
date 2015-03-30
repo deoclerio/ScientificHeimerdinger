@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -132,7 +132,7 @@ namespace HeimerdingerARK
             //Idk what this is called but it's something <3
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
             AntiGapcloser.OnEnemyGapcloser += AntiGapCloser_OnEnemyGapcloser;
-            Game.OnGameUpdate += Game_OnGameUpdate;
+            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += OnDraw;
             Drawing.OnEndScene += OnEndScene;
 
@@ -251,6 +251,8 @@ namespace HeimerdingerARK
 
             var mixed = (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Mixed);
             var htarget = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
+            if (htarget == null || !htarget.IsValidTarget())
+                return;
 
             if (E.IsReady() && mixed && Config.Item("harassE").GetValue<bool>() && htarget.IsValidTarget(E.Range)
                 && player.ManaPercentage() >= harassmana)
@@ -269,7 +271,11 @@ namespace HeimerdingerARK
 
             //Combo
             var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
+            if (target == null || !target.IsValidTarget())
+                return;
             var qtarget = TargetSelector.GetTarget(600, TargetSelector.DamageType.Magical);
+            if (qtarget == null || !qtarget.IsValidTarget())
+                return;
             var wpred = W.GetPrediction(target);
 
             if (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Combo)
