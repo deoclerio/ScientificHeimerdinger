@@ -251,7 +251,7 @@ namespace HeimerdingerARK
 
             var mixed = (Orbwalker.ActiveMode == Orbwalking.OrbwalkingMode.Mixed);
             var htarget = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
-            if (htarget == null || !htarget.IsValidTarget())
+            if (htarget == null)
                 return;
 
             if (E.IsReady() && mixed && Config.Item("harassE").GetValue<bool>() && htarget.IsValidTarget(E.Range)
@@ -271,10 +271,10 @@ namespace HeimerdingerARK
 
             //Combo
             var target = TargetSelector.GetTarget(W.Range, TargetSelector.DamageType.Magical);
-            if (target == null || !target.IsValidTarget())
-                return;
+            if (target == null)
+                return;t
             var qtarget = TargetSelector.GetTarget(600, TargetSelector.DamageType.Magical);
-            if (qtarget == null || !qtarget.IsValidTarget())
+            if (qtarget == null)
                 return;
             var wpred = W.GetPrediction(target);
 
